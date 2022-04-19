@@ -3,14 +3,7 @@
 import { evaluateRegex } from "./util.js";
 
 export class Project {
-  constructor({
-    título = "",
-    link = "",
-    autor = "",
-    etapa = "",
-    ementa = "",
-    indexadoresnorma = "",
-  }) {
+  constructor({ título, link, autor, etapa, ementa, indexadoresnorma = "" }) {
     const yearAndNumberRegex = evaluateRegex(/(?<=Projeto de lei )(?<lei>\d*)\/(?<ano>\d*)/gm);
     const idRegex = evaluateRegex(/(?<=id=)(\d*)/gm);
     const commaRegex = evaluateRegex(/,/gm);

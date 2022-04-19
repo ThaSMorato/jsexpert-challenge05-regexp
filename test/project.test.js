@@ -19,15 +19,18 @@ describe("#Project", () => {
       numero: "545",
       ano: "2016",
       autores: [{ nome: "Roberto Morais" }, { nome: "Itamar Borges" }],
-      url: "http://www.al.sp.gov.br/propositura?id=1322832",
       indexadores: [],
-      etapa: "PAUTA",
-      ementa:
-        "Altera a Lei nº 13.550, de 2009, que dispõe sobre a utilização e proteção da vegetação nativa do Bioma Cerrado no Estado de São Paulo.",
     };
 
     const result = new Project(data);
 
-    expect(JSON.parse(JSON.stringify(result))).toEqual(expected);
+    expect(result.id).toBe(expected.id);
+    expect(result.numero).toBe(expected.numero);
+    expect(result.ano).toBe(expected.ano);
+    expect(result.autores).toEqual(expected.autores);
+    expect(result.url).toBe(data.link);
+    expect(result.indexadores).toEqual(expected.indexadores);
+    expect(result.etapa).toBe(data.etapa);
+    expect(result.ementa).toBe(data.ementa);
   });
 });

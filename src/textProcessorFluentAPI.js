@@ -7,16 +7,16 @@ export class TextProcessorFluentApi {
   #content;
 
   constructor(content) {
-    this.#content = { content };
+    this.#content = content;
   }
 
   extractHeaders() {
-    const matchHeaders = evaluateRegex(/(título)(.*)\n/gim);
-    const headers = this.#content.content.match(matchHeaders)[0];
+    const matchHeaders = evaluateRegex(/(título)(.*)\r\n/);
+    const headers = this.#content.match(matchHeaders)[0];
 
     this.#content = {
       headers,
-      content: this.#content.content.replace(matchHeaders, ""),
+      content: this.#content.replace(matchHeaders, ""),
     };
 
     return this;
@@ -24,7 +24,7 @@ export class TextProcessorFluentApi {
 
   splitContentKeys() {
     const splitKey = evaluateRegex(/;/gim);
-    const splitLineKey = evaluateRegex(/\n/gim);
+    const splitLineKey = evaluateRegex(/\r\n/gim);
 
     const splitedHeaders = this.#content.headers
       .split(splitKey)
