@@ -4,11 +4,12 @@
   "version": "1.0.0",
   "description": "This is the official repository of the 5th EW.IT code challenge. Which is a Facade/Fluent API based application to extract useful information from governmental csv files using regexps.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "test": "npx mocha --parallel test/*.test.js",
-    "test:dev": "npx mocha -w test/*.test.js",
-    "test:cov": "npx nyc npx mocha --parallel test/*.test.js"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --watchAll --config ./jest.config.js",
+    "test:dev": "NODE_OPTIONS=--experimental-vm-modules npx jest --runInBand --watchAll --config ./jest.config.js",
+    "test:cov": "NODE_OPTIONS=--experimental-vm-modules npx jest  --config ./jest.config.js --coverage"
   },
   "keywords": [
     "RegExp",
@@ -20,9 +21,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1",
-    "nyc": "^15.1.0"
+    "jest": "^27.5.1"
   },
   "dependencies": {
     "safe-regex": "^2.1.1"
