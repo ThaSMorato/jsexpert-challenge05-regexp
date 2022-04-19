@@ -157,6 +157,7 @@ Criar uma classe que receba no construtor os campos `título`, `link`, `autor`, 
 
 - [x] Uso de TDD do início ao fim do projeto
 - [x] Testes Unitários e **100% de Code Coverage**
+![image](https://user-images.githubusercontent.com/44843722/164069686-60de5ede-42f6-4a43-8a07-9a46c1bf0503.png)
 - [x] Uso de Expressões Regulares
 - [x] Validação de segurança de Expressões Regulares
 - [x] Uso do padrão `Fluent API` e também o padrão `Facade`
