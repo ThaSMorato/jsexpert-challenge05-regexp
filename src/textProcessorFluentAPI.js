@@ -44,10 +44,10 @@ export class TextProcessorFluentApi {
 
   createRawObject() {
     const mapFunction = (itemArray) => {
-      return itemArray.reduce((prev, current, currentIndex) => {
+      return itemArray.reduce((finalObject, field, index) => {
         return {
-          ...prev,
-          [this.#content.headers[currentIndex]]: current,
+          ...finalObject,
+          [this.#content.headers[index]]: field,
         };
       }, {});
     };

@@ -9,7 +9,7 @@ export class Project {
     const commaRegex = evaluateRegex(/,/gm);
     const trimRegex = evaluateRegex(/^\s/gm);
 
-    const splitByCommaAndRemoveTrim = (string) =>
+    const splitByCommaAndTrim = (string) =>
       string
         .split(commaRegex)
         .map((item) => item.replace(trimRegex, ""))
@@ -19,11 +19,11 @@ export class Project {
       groups: { lei, ano },
     } = yearAndNumberRegex.exec(título);
     const id = link.match(idRegex)[0];
-    const autors = splitByCommaAndRemoveTrim(autor).map((autor) => ({
+    const autors = splitByCommaAndTrim(autor).map((autor) => ({
       nome: autor,
     }));
 
-    const indexadores = splitByCommaAndRemoveTrim(indexadoresnorma);
+    const indexadores = splitByCommaAndTrim(indexadoresnorma);
 
     this.numero = lei;
     this.ano = ano;
